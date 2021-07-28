@@ -2,6 +2,7 @@ package by.alia.servletproject;
 
 import by.alia.servletproject.dao.UserDao;
 import by.alia.servletproject.model.ListService;
+import by.alia.servletproject.util.HashPassword;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
@@ -23,7 +24,7 @@ public class LoginServlet extends HttpServlet {
         String password = request.getParameter("password");
         UserDao daoUser = new UserDao();
 
-        if (daoUser.isValidUser(name, password)) {
+        if (daoUser.isValidUser(name, HashPassword.getHash(password))) {
             request.getSession().setAttribute("name", name);
             response.sendRedirect(request.getContextPath()+"/GroupListServlet");
         } else {

@@ -1,43 +1,32 @@
 package by.alia.servletproject.model;
 
-public class Person {
-    private String name;
-    private String phone;
-    private String email;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+import lombok.ToString;
 
-    public Person(String name, String phone, String email) {
-        this.name = name;
-        this.phone = phone;
-        this.email = email;
-    }
+import java.io.Serializable;
+
+@Data
+@ToString
+@AllArgsConstructor
+@NoArgsConstructor
+public class Person implements Serializable {
+
+    private  int id;
+    private  String name;
+    private  String phone;
+    private  String email;
 
     public Person(Person person) {
-        name = person.name;
-        phone = person.phone;
-        email = person.email;
+        this.name =  person.name;
+        this.phone = person.phone;
+        this.email = person.email;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
+    public Person(String nname, String nphone, String nemail) {
+        this.name =  nname;
+        this.phone = nphone;
+        this.email = nemail;
     }
 }
