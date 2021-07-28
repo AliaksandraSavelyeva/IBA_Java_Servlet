@@ -9,13 +9,19 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class ConnectorDB {
+    private static final Logger logger = LogManager.getLogger(ConnectorDB.class);
+
     public static Connection getConnection() throws SQLException, ClassNotFoundException {
         DriverManager.registerDriver(new com.mysql.jdbc.Driver());
         Class.forName("com.mysql.jdbc.Driver");
+
         ResourceBundle resource = ResourceBundle.getBundle("db", Locale.getDefault());
+
         String url = resource.getString("db.url");
         String user = resource.getString("db.user");
         String pass = resource.getString("db.password");
+
+        logger.info("connection establish");
         return DriverManager.getConnection(url, user, pass);
     }
 }

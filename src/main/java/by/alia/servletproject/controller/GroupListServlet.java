@@ -1,7 +1,6 @@
-package by.alia.servletproject;
+package by.alia.servletproject.controller;
 
 import by.alia.servletproject.dao.PersonDao;
-import by.alia.servletproject.model.ListService;
 import by.alia.servletproject.model.Person;
 
 import javax.servlet.*;

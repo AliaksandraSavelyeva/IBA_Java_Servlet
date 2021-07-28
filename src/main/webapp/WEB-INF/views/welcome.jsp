@@ -3,21 +3,7 @@
 <html>
 <head>
     <title>Welcome</title>
-    <!-- Bootstrap core CSS -->
-    <link href="webjars/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet">
-    <style>
-        .footer {
-            position: absolute;
-            bottom: 0;
-            width: 100%;
-            height: 60px;
-            background-color: #f5f5f5;
-        }
-        .footer .container {
-            width: auto;
-            max-width: 680px;
-            padding: 0 15px;
-        } </style>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <nav role="navigation" class="navbar navbar-default">

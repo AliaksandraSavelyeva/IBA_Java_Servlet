@@ -1,4 +1,4 @@
-package by.alia.servletproject;
+package by.alia.servletproject.controller;
 
 import javax.servlet.*;
 import javax.servlet.http.*;

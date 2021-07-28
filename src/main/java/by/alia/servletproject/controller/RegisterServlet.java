@@ -1,4 +1,4 @@
-package by.alia.servletproject;
+package by.alia.servletproject.controller;
 
 import by.alia.servletproject.dao.UserDao;
 import by.alia.servletproject.model.User;

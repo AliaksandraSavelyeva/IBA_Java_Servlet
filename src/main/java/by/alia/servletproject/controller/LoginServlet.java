@@ -1,14 +1,12 @@
-package by.alia.servletproject;
+package by.alia.servletproject.controller;
 
 import by.alia.servletproject.dao.UserDao;
-import by.alia.servletproject.model.ListService;
 import by.alia.servletproject.util.HashPassword;
 
 import javax.servlet.*;
 import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.time.LocalDateTime;
 
 @WebServlet(urlPatterns = "/LoginServlet")
