@@ -13,7 +13,7 @@ import java.util.Map;
 import java.util.Optional;
 
 public class PersonRepository extends AbstractRepository<Person> {
-    private static final String TABLE_NAME = "persons";
+    private static final String TABLE_NAME = "personas";
     public PersonRepository(Connection connection) {
         super(connection);
     }

@@ -67,10 +67,12 @@ public class ConnectionPool {
             Integer initialCapacity = Integer.valueOf(initialCapacityString);
             for (int i = 0; i < initialCapacity; i++) {
                 try {
+                    DriverManager.registerDriver(new com.mysql.jdbc.Driver());
+                    Class.forName("com.mysql.jdbc.Driver");
                     Connection connection =
                             DriverManager.getConnection(connectionURL, user, pass);
                     freeConnections.add(connection);
-                } catch (SQLException e) {
+                } catch (SQLException | ClassNotFoundException e) {
                     logger.error("Pool can not initialize", e);
                     throw new RuntimeException("Pool can not initialize", e);
                 }
