@@ -15,7 +15,7 @@
     <div class ="container">
         <section id="content">
             <p><font color="red">${errorRegister}</font></p>
-            <form action="RegisterServlet" method="POST">
+            <form action="${pageContext.servletContext.contextPath}/controller?command=register_new_user" method="POST">
                 <h1> Регистрация нового пользователя </h1>
                 <div>
                     <input placeholder="Введите имя" required=""name="newLoginName" type="text" />
