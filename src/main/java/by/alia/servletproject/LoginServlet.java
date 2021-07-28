@@ -9,9 +9,11 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.time.LocalDateTime;
 
-@WebServlet(name = "LoginServlet", value = "/LoginServlet")
+@WebServlet(urlPatterns = "/LoginServlet")
 public class LoginServlet extends HttpServlet {
+
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.getRequestDispatcher("/WEB-INF/views/login.jsp")
@@ -26,13 +28,25 @@ public class LoginServlet extends HttpServlet {
 
         if (daoUser.isValidUser(name, HashPassword.getHash(password))) {
             request.getSession().setAttribute("name", name);
-            response.sendRedirect(request.getContextPath()+"/GroupListServlet");
-        } else {
-            request.setAttribute("errorMessage", "Invalid Login and password!!");
-            request.getRequestDispatcher("/WEB-INF/views/login.jsp")
-                    .forward(request, response);
-        }
 
+            Cookie[] cookies = request.getCookies();
+            if (cookies != null) {
+                for (Cookie c : cookies) {
+                    Cookie cookie = c;
+                    System.out.println(cookie.getName() + cookie.getValue());
+                    if (name.equals(cookie.getName())) {
+                        request. getSession().setAttribute("lastdate", cookie.getValue());
+                    }
+                }
+            }
+            Cookie userCookie = new Cookie(name, LocalDateTime.now().toString());
+            userCookie.setMaxAge(60 * 60 * 24 * 100); //хранить куки 100 дней response.addCookie(userCookie);
+            request.getRequestDispatcher("/WEB-INF/views/welcome.jsp")
+                    .forward(request, response);
+        } else {
+            request.setAttribute("errorMessage", "Неверный логин или пароль!!");
+            request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
+        }
     }
 
     @Override

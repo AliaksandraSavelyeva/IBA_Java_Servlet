@@ -9,14 +9,14 @@ import javax.servlet.http.*;
 import javax.servlet.annotation.*;
 import java.io.IOException;
 
-@WebServlet(name = "GroupListServlet", value = "/GroupListServlet")
+@WebServlet(urlPatterns = "/GroupListServlet")
 public class GroupListServlet extends HttpServlet {
     private static final long serialVersionUID = 1L;
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         PersonDao daoPerson = new PersonDao();
-        request.setAttribute("group",daoPerson.getPersons());
+        request.setAttribute("group", daoPerson.getPersons());
         request.getRequestDispatcher("/WEB-INF/views/welcome.jsp")
                 .forward(request, response);
     }
