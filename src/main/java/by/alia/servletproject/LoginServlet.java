@@ -23,10 +23,7 @@ public class LoginServlet extends HttpServlet {
 
         if (validateUser(name, password)) {
             request.getSession().setAttribute("name", name);
-            request.setAttribute("group",
-                    ListService.retrieveList());
-            request.getRequestDispatcher("/WEB-INF/views/welcome.jsp")
-                    .forward(request, response);
+            response.sendRedirect(request.getContextPath()+"/GroupListServlet");
         } else {
             request.setAttribute("errorMessage", "Invalid Login and password!!");
             request.getRequestDispatcher("/WEB-INF/views/login.jsp")

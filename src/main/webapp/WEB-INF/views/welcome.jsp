@@ -8,6 +8,7 @@
     <H2>Welcome ${name}</H2>
     <div>
         <table class ="container" border="2">
+            <caption>Список вашей группы</caption>
             <tr>
                 <th>Имя</th>
                 <th>Телефон</th>
@@ -20,6 +21,14 @@
                 </tr>
             </c:forEach>
         </table>
+        <p><font color="red">${errorMessage}</font></p>
+        <form method="POST" action="GroupListServlet">
+            Новый :
+            <p> Введите имя <input name="nname" type="text" /> </p>
+            <p> Введите телефон <input name="nphone" type="text" /> </p>
+            <p> Введите email <input name="nemail" type="text" /> </p>
+            <input name="add" type="submit" />
+        </form>
     </div>
 </body>
 </html>

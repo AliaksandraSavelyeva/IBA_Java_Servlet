@@ -15,4 +15,8 @@ public class ListService {
     static public List<Person> retrieveList() {
         return groupList;
     }
+
+    static public void addPerson(Person person) {
+        groupList.add(new Person(person));
+    }
 }
