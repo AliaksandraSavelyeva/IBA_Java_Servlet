@@ -14,6 +14,16 @@
         <element id="directory" name="classes">
           <element id="module-output" name="ServletProject" />
         </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.13.0" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.13.0" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: org.webjars:bootstrap:4.6.0" />
+          <element id="library" level="project" name="Maven: org.webjars:popper.js:2.5.4" />
+          <element id="library" level="project" name="Maven: org.webjars.bower:jquery:3.6.0" />
+          <element id="library" level="project" name="Maven: com.microsoft.sqlserver:mssql-jdbc:9.2.1.jre11" />
+          <element id="library" level="project" name="Maven: org.apache.commons:commons-lang3:3.0" />
+        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/target/ServletProject-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
