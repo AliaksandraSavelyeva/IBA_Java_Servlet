@@ -1,6 +1,6 @@
 package by.alia.servletproject.builder;
 
-public class BuilderFactory {
+public class BuildFactory {
     private static final String USER = "user";
     private static final String PERSON = "persons";
     private static final String MESSAGE= "Unknown Builder name!";
