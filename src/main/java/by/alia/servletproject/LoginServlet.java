@@ -1,5 +1,6 @@
 package by.alia.servletproject;
 
+import by.alia.servletproject.dao.UserDao;
 import by.alia.servletproject.model.ListService;
 
 import javax.servlet.*;
@@ -20,8 +21,9 @@ public class LoginServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String name = request.getParameter("name");
         String password = request.getParameter("password");
+        UserDao daoUser = new UserDao();
 
-        if (validateUser(name, password)) {
+        if (daoUser.isValidUser(name, password)) {
             request.getSession().setAttribute("name", name);
             response.sendRedirect(request.getContextPath()+"/GroupListServlet");
         } else {
@@ -29,6 +31,7 @@ public class LoginServlet extends HttpServlet {
             request.getRequestDispatcher("/WEB-INF/views/login.jsp")
                     .forward(request, response);
         }
+
     }
 
     @Override
@@ -47,9 +50,5 @@ public class LoginServlet extends HttpServlet {
     public void service(ServletRequest req, ServletResponse res) throws ServletException, IOException {
         super.service(req, res);
         System.out.println("service");
-    }
-
-    public boolean validateUser(String user, String password) {
-        return user.equalsIgnoreCase("admin") && password.equals("admin");
     }
 }

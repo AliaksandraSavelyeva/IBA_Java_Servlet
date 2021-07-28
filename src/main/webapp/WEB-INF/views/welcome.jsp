@@ -32,7 +32,7 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="LoginServlet">Login</a>
+                    <a href="LogoutServlet">Logout</a>
                 </li>
             </ul>
         </div>
